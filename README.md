@@ -1,2 +1,1 @@
-# alx-system_engineering-devops
-shell basics software engineering
+my trial for working directory
