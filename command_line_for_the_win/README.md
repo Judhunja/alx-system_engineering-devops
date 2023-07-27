@@ -11,7 +11,7 @@
 	*how*?
 	
 	- copy the SFTP credentials in your sandbox environment to your local machine's terminal, in the directory path where your screenshots exist
-	- use the put command to upload them to your sandbox environment
+	- use the `put` command to upload them to your sandbox environment
 	
 -   Confirm that the `screenshots` have been successfully transferred by checking the sandbox directory.
 -   Once the `screenshots` are transferred, you can proceed to push the `screenshots` to `GitHub`
