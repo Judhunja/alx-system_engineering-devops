@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-# This script prints the contents of the current directory in a list format where only the part of the name after the first dash is printed. It cuts the filename from the second field after the dash and stores it in a variable
+# This script prints the contents of the current directory in a list format where only the part of the name after the first dash is printed(the second field)
 for i in *
 do
-	filename=$(echo "$i" | cut -d "-" -f 2-)
-	echo "$filename"
+	echo "$i" | cut -d "-" -f 2
 done
