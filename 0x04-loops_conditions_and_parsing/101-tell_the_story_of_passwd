@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script prints the contents of /etc/passwd using while loop and IFS
+if [ -e "/etc/passwd" ]
+then
+	while IFS=":" read -r username password uid gid idinfo home shell
+	do	
+		echo "The user $username is part of the $gid gang, lives in $home and rides $shell. $uid's place is protected by the passcode $password, more info about the user here: $idinfo"
+	done < "/etc/passwd"
+fi
