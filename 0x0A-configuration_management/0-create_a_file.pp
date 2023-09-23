@@ -1,6 +1,6 @@
 # create a file using puppet with these configurations
 file = { '/tmp/school':
-  ensure  => 'present',
+  ensure  => 'file',
   path    => '/tmp/school',
   owner   => 'www-data',
   group   => 'www-data',
