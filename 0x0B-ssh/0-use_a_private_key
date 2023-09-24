@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# logs into my server using py private rsa key
+
+ssh -i ~/.ssh/school ubuntu@34.234.203.112
