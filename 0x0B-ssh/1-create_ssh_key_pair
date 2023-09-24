@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# creates an ssh key and saves it in a new specified file
+ssh-keygen -f school -N "betty" -b 4096
