@@ -2,8 +2,8 @@
 # This script installs nginx on my web server listening on port 80
 # and puts "Hello world as the content when the server is requested
 
-apt-get -y update
-apt-get -y install nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
 
 echo 'Hello World!' > /var/www/html/index.html
 
