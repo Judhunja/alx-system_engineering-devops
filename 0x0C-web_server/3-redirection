@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# This script is a configuration of a brand new nginx server
+# so that /redirect_me redirects to another page
+
+apt-get -y update
+apt-get -y install nginx
+
+echo 'Hello World' > /var/www/html/index.html
+
+sed -i '/server {/a \ \ \ \ location /redirect_me/ { return 301 https://www.youtube.com/watch?v=2SpuBqvNjHI; }' /etc/nginx/sites-available/default
+
+service nginx restart
