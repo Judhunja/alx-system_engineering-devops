@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script configures apache to listen on 0.0.0.0:8080
+# and restarts apache
+echo 'Listen 0.0.0.0:8080' > /etc/apache2/ports.conf
+echo 'Hello Holberton!' > /var/www/html/index.html
+
+systemctl restart apache2
