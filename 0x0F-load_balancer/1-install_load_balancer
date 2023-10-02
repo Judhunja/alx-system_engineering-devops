@@ -2,3 +2,21 @@
 # This script installs and configures HAproxy on a load
 # balancer server to send traffic to two servers using
 # a roundrobin algorithm
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+
+haproxycfg="/etc/haproxy/haproxy.cfg"
+
+cat <<EOL >> "$haproxycfg"
+frontend my_frontend
+	bind *:80
+	mode http
+	default_backend my_backend
+
+backend my_backend
+	balance roundrobin
+	server 274773-web-01 34.234.203.112:80 check
+	server 274773-web-02 3.85.175.129:80 check
+EOL
+
+sudo service haproxy restart
