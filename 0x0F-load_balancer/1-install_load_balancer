@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script installs and configures HAproxy on a load
+# balancer server to send traffic to two servers using
+# a roundrobin algorithm

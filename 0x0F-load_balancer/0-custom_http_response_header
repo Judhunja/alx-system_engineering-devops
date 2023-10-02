@@ -11,4 +11,6 @@ echo "location / {" | sudo tee "$config" > /dev/null
 echo "	add_header X-Served-By $hostname;" | sudo tee -a "$config" > /dev/null
 echo "}" | sudo tee -a "$config" > /dev/null
 
+sudo nginx -t
+
 service nginx restart
