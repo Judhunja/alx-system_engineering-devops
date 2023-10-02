@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This script installs nginx on a server and and configures a custom http
+# response header which is X-Served-By and the value of the header is
+# the hostname of the server that nginx is running on.
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+config="/etc/nginx/conf.d/custom_header.conf"
+
+echo "location / {" | sudo tee "$config" > /dev/null
+echo "	add_header X-Served-By $hostname;" | sudo tee -a "$config" > /dev/null
+echo "}" | sudo tee -a "$config" > /dev/null
+
+service nginx restart
