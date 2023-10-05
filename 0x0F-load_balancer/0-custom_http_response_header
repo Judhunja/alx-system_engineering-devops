@@ -5,12 +5,17 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 
-config="/etc/nginx/conf.d/custom_header.conf"
+echo 'Hello World' | sudo tee /usr/share/nginx/html/index.html
 
-echo "location / {" | sudo tee "$config" > /dev/null
-echo "	add_header X-Served-By $hostname;" | sudo tee -a "$config" > /dev/null
-echo "}" | sudo tee -a "$config" > /dev/null
+redirect="\\\tlocation /redirect_me {\n\t\t return 301 https://google.com;\n\t}"
+sudo sed -i "/server {/a $redirect" /etc/nginx/sites-available/default
 
-sudo nginx -t
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404_page.html
 
-service nginx restart
+error_page="\\\terror_page 404 /custom_404_page.html;\n\tlocation = /custom_404_page.html {\n\t\troot /usr/share/nginx/html/;\n\t}"
+sudo sed -i "/server {/a $error_page" /etc/nginx/sites-available/default
+
+custom_header="\\\tlocation / {\n\t\tadd_header X-Served-By $HOSTNAME;\n\t}"
+sudo sed -i "/server {/a $custom_header" /etc/nginx/sites-available/default
+
+sudo service nginx restart
