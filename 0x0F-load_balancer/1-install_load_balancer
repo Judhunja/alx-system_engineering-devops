@@ -16,7 +16,9 @@ frontend my_frontend
 backend my_backend
 	balance roundrobin
 	server 274773-web-01 34.234.203.112:80 check
-	server 274773-web-02 3.85.175.129:80 check
+	server 274773-web-02 35.153.33.42:80 check
 EOL
 
-sudo service haproxy restart
+sudo sh -c 'echo "ENABLED=1" > /etc/default/haproxy'
+
+sudo service haproxy start
