@@ -15,7 +15,7 @@ domain_or_sub () {
 
 if [ "$#" -eq 1 ]
 then
-	subs=("www" "web-01" "web-02" "lb-01")
+	subs=("www" "lb-01" "web-01" "web-02")
 	for sub in "${subs[@]}";
 	do
 		domain_or_sub "$1" "$sub"
