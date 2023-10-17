@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This script creates a backup of mysql dump of a database
+timestamp=$(date +\%d-\%m\-%Y)
+mysqldump -u root --password="$1" --all-databases > "backup.sql"
+gzip "backup.sql" -c > "${timestamp}.tar.gz"
