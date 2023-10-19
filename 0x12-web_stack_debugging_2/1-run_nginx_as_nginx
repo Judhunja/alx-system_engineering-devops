@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# configures a nginx server to run as a less privileged nginx user instead of root
+new_user="nginx"
+sudo useradd -r -s /sbin/nologin $new_user
+sudo sed -i "s/^user .*/user $new_user;/" /etc/nginx/nginx.conf
+sudo sed -i "/^http {/a $server_block" /etc/nginx/nginx.conf
+server_block="\tserver {\n\t\tlisten 8080;\n}"
+sudo service nginx restart
