@@ -38,5 +38,9 @@ if __name__ == "__main__":
 
     print(f"Employee {name} is done with tasks({completed}/{total}):")
 
+    count = 0
     for task in task_titles:
         print(f"\t {task}")
+        count += 1
+        if count == 11:
+            break
