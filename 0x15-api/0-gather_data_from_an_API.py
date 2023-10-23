@@ -30,17 +30,13 @@ if __name__ == "__main__":
         for task in data:
             if task.get('completed', False):
                 completed += 1
+                task_titles.append(task.get('title'))
             else:
                 not_done += 1
-            task_titles.append(task.get('title'))
 
         total = completed + not_done
 
     print(f"Employee {name} is done with tasks({completed}/{total}):")
 
-    count = 0
     for task in task_titles:
         print(f"\t {task}")
-        count += 1
-        if count == 11:
-            break
