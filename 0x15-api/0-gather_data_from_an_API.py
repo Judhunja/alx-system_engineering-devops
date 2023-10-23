@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """ This script uses a rest API to request data and
 displays it in readable format """
-from sys import argv
-from urllib.parse import urlencode
-from urllib.request import urlopen, Request
 import json
+from sys import argv
+from urllib.request import urlopen, Request
 
 
 if __name__ == "__main__":
@@ -40,4 +39,4 @@ if __name__ == "__main__":
     print(f"Employee {name} is done with tasks({completed}/{total}):")
 
     for task in task_titles:
-        print(f"     {task}")
+        print(f"\t {task}")
