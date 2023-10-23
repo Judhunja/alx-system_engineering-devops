@@ -28,10 +28,9 @@ if __name__ == "__main__":
                     "task": task.get('title'),
                     "completed": task.get('completed'),
                     "username": username
-                    }
-                for task in data
-                ]
-            }
+                } for task in data
+            ]
+        }
     json_file = f"{id}.json"
-    with open(json_file, 'w', encoding="utf-8") as json_file:
-        json.dump(user, json_file)
+    with open(json_file, 'w', encoding="utf-8") as json_file_obj:
+        json.dump(user, json_file_obj)
