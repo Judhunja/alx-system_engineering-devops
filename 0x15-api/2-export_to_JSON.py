@@ -24,7 +24,7 @@ if __name__ == "__main__":
         data = json.loads(response.read().decode('utf-8'))
 
     user = {
-            user_id: [
+            str(user_id): [
                 {
                     "task": task.get('title'),
                     "completed": task.get('completed'),
